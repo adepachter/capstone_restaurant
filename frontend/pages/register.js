@@ -26,8 +26,8 @@ const Register = () => {
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
             <div className="header">
-              <img src="https://strapi.io/assets/images/logo.png" />
-            </div>
+              <h1 className="headerwhite">Sign Up</h1>
+                      </div>
             <section className="wrapper">
               {Object.entries(error).length !== 0 &&
                 error.constructor === Object &&
@@ -94,6 +94,7 @@ const Register = () => {
                       disabled={loading}
                       onClick={() => {
                         setLoading(true);
+                        alert("Your account is created! We will forward you to the homepage and log you in automatically");
                         registerUser(data.username, data.email, data.password)
                           .then((res) => {
                             // set authed user in global context object

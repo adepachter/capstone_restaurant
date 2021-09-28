@@ -7,11 +7,11 @@ import React from "react";
 import App from "next/app";
 import Cookie from "js-cookie";
 import fetch from "isomorphic-fetch";
-
+import './styles.css';
 
 
 function MyApp(props){
-  var {cart,addItem,removeItem, test, setTest} = useContext(AppContext)
+  var {cart,addItem,removeItem} = useContext(AppContext)
   const [state,setState] = useState({cart:cart});
   const [user, setUser] = useState(null);
   
@@ -37,7 +37,6 @@ function MyApp(props){
         }
         const user = await res.json();
         console.log("USER USER ");
-        setTest("hellowwww");
         console.log(setUser);
         console.log(user);
         setUser(user);

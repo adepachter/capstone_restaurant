@@ -42,7 +42,11 @@ let searchQuery = data.restaurants.filter((res) =>{
     return res.name.toLowerCase().includes(props.search)
   })
 
-let restId = searchQuery[0].id
+if (searchQuery[0] === undefined){
+  let restId = null;
+} else {
+  let restId = searchQuery[0].id;
+}
  
 // definet renderer for Dishes
   const renderDishes = (restaurantID) => {
@@ -56,7 +60,7 @@ if(searchQuery.length > 0){
           top={true}
           style={{ height: 200 }}
           src={
-          `http://localhost:1337`+ res.image.url
+          `https://picsum.photos/300/20`+res.id
           }
         />
         <CardBody>

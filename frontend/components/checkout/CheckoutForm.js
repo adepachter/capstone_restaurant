@@ -33,7 +33,7 @@ function CheckoutForm() {
 
   async function submitOrder() {
     // event.preventDefault();
-
+    document.getElementById("checkoutbutton").disabled = true;
     // // Use elements.getElement to get a reference to the mounted Element.
     const cardElement = elements.getElement(CardElement);
 
@@ -57,6 +57,11 @@ function CheckoutForm() {
 
     if (!response.ok) {
       setError(response.statusText);
+    }
+
+    if (response.ok) {
+      alert("Received payment!");
+      window.location = '/';   
     }
 
     // OTHER stripe methods you can use depending on app
